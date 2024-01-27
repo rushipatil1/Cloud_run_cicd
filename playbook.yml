@@ -1,0 +1,18 @@
+---
+- name: fns
+  hosts: localhost
+  tasks:
+  - name: "include {{env}} variable"
+    include_vars: "{{env}}/vars.yml"
+  - name: "create or update Run Service to {{image_name_latest}}"
+    ansible.builtin.shell: |
+        gcloud run deploy {{service_name}} \
+          --min-instances={{min_instances}} \
+          --max-instances={{max_instances}} \
+          --set-cloudsql-instances={{sql_instance}} \
+          --cpu={{cpu}} \
+          --memory={{memory}} \
+          --region=us-central1 \
+          --allow-unauthenticated  \
+          --image={{image_name_latest}} \
+          --env-vars-file={{env}}/.env.yml
