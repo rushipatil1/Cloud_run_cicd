@@ -1,0 +1,5 @@
+ cpu: "8"
+ memory: "32Gi"
+ min_instances: "1"
+ max_instances: "100"
+ sql_instance: "mygcp:us-central1:myswdb-gcp18-restore"

@@ -1,0 +1,5 @@
+ cpu: "4"
+ memory: "16Gi"
+ min_instances: "3"
+ max_instances: "15"
+ sql_instance: "myproject1:us-central1:myprdosdb-gcp12"
